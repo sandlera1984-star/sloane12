@@ -1,0 +1,10 @@
+{
+  "name": "sloanex-site",
+  "version": "1.0.0",
+  "description": "Static site for SloaneX hosted on Vercel",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "nodemailer": "^6.9.11"
+  }
+}

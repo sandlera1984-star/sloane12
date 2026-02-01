@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SloaneX</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div id="terms-modal" class="modal active" aria-hidden="false">
+      <div class="modal-content">
+        <h2>Terms of Agreement</h2>
+        <div id="terms-scroll" class="terms-scroll">
+          <p>
+            This website provides access to digital services and content. By using
+            this website you agree that all services are provided “as is” and “as
+            available.” We make no warranties or guarantees of any kind, express
+            or implied, regarding the accuracy, reliability, or availability of
+            the services. You acknowledge that you are solely responsible for
+            your use of the services and any outcomes resulting from your use.
+          </p>
+          <p>
+            To the fullest extent permitted by law, we disclaim liability for any
+            direct, indirect, incidental, consequential, or punitive damages
+            arising out of or related to your access to or use of this website or
+            its content. This includes, without limitation, any damages for loss
+            of profits, data, or goodwill.
+          </p>
+          <p>
+            You agree to comply with all applicable laws and regulations. You are
+            responsible for maintaining the confidentiality of your account and
+            any activities that occur under your account. By continuing, you
+            affirm that you are of legal age to access and purchase digital
+            services in your jurisdiction.
+          </p>
+          <p>
+            If you do not agree with these terms, please discontinue use of the
+            website immediately.
+          </p>
+        </div>
+        <div class="terms-actions hidden">
+          <button id="agree-btn" class="action-btn" disabled>Agree</button>
+          <button id="age-btn" class="action-btn" disabled>
+            I Am Over 18 Years Old
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="page">
+      <header class="nav-bar">
+        <div class="logo">SloaneX</div>
+        <nav>
+          <button class="nav-btn" data-target="home">Home</button>
+          <button class="nav-btn" data-target="exclusive">Exclusive Content</button>
+          <button class="nav-btn" data-target="admin">Admin</button>
+        </nav>
+      </header>
+
+      <main>
+        <section id="home" class="section active">
+          <div class="banner" id="banner-slot">
+            <span>Banner Image (16:9)</span>
+          </div>
+          <div class="home-content">
+            <div class="home-text">
+              <h1>SloaneX</h1>
+              <p>Sign Up For Exclusive Content</p>
+              <button id="signup-btn" class="primary-btn">5 CAD billed monthly</button>
+            </div>
+            <div class="profile-circle" id="profile-slot">
+              <span>Profile Picture</span>
+            </div>
+          </div>
+        </section>
+
+        <section id="exclusive" class="section">
+          <div class="exclusive-layout">
+            <aside class="sidebar">
+              <button class="sidebar-btn active" data-subpage="exclusive-main">
+                Exclusive Content
+              </button>
+              <button class="sidebar-btn" data-subpage="account">Account</button>
+              <button class="sidebar-btn" data-subpage="subscription">
+                Subscription
+              </button>
+              <button class="sidebar-btn" data-subpage="support">Support</button>
+              <button id="sidebar-back" class="back-btn hidden">Back</button>
+            </aside>
+
+            <div class="exclusive-content">
+              <div id="exclusive-main" class="subpage active">
+                <div class="columns">
+                  <div class="column">
+                    <h2>Images</h2>
+                    <div id="images-grid" class="media-grid"></div>
+                  </div>
+                  <div class="column">
+                    <h2>Videos</h2>
+                    <div id="videos-grid" class="media-grid"></div>
+                  </div>
+                </div>
+              </div>
+
+              <div id="account" class="subpage">
+                <div class="under-construction">Under Construction</div>
+              </div>
+
+              <div id="subscription" class="subpage">
+                <div class="under-construction">Under Construction</div>
+              </div>
+
+              <div id="support" class="subpage">
+                <form id="support-form" class="support-form">
+                  <label>
+                    Name
+                    <input type="text" name="name" required />
+                  </label>
+                  <label>
+                    Email
+                    <input type="email" name="email" required />
+                  </label>
+                  <label>
+                    Description
+                    <textarea
+                      name="description"
+                      rows="6"
+                      maxlength="1200"
+                      placeholder="Up to 200 words"
+                      required
+                    ></textarea>
+                  </label>
+                  <div class="word-count" id="word-count">0 / 200 words</div>
+                  <button type="submit" id="support-submit" class="primary-btn" disabled>
+                    Submit
+                  </button>
+                  <div id="support-status" class="status"></div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="admin" class="section">
+          <div id="admin-lock" class="admin-lock">
+            <div class="admin-modal">
+              <h2>Enter Admin Code</h2>
+              <input type="password" id="admin-code" />
+              <button id="admin-submit" class="primary-btn">Submit</button>
+              <div id="admin-error" class="status"></div>
+            </div>
+          </div>
+
+          <div id="admin-content" class="admin-content hidden">
+            <div class="upload-grid">
+              <div class="upload-card" data-upload="profile">
+                <h3>Profile Picture</h3>
+                <input type="file" accept="image/*" />
+                <div class="progress">
+                  <div class="progress-bar"></div>
+                  <span class="progress-label">0%</span>
+                </div>
+                <div class="timer">0s</div>
+              </div>
+              <div class="upload-card" data-upload="banner">
+                <h3>Banner Picture</h3>
+                <input type="file" accept="image/*" />
+                <div class="progress">
+                  <div class="progress-bar"></div>
+                  <span class="progress-label">0%</span>
+                </div>
+                <div class="timer">0s</div>
+              </div>
+              <div class="upload-card" data-upload="images">
+                <h3>Upload Pictures</h3>
+                <input type="file" accept="image/*" multiple />
+                <div class="progress">
+                  <div class="progress-bar"></div>
+                  <span class="progress-label">0%</span>
+                </div>
+                <div class="timer">0s</div>
+              </div>
+              <div class="upload-card" data-upload="videos">
+                <h3>Upload Video</h3>
+                <input type="file" accept="video/*" multiple />
+                <div class="progress">
+                  <div class="progress-bar"></div>
+                  <span class="progress-label">0%</span>
+                </div>
+                <div class="timer">0s</div>
+              </div>
+            </div>
+
+            <div class="admin-media" id="admin-media"></div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <div id="construction-bubble" class="construction-bubble hidden">
+      Under Construction
+    </div>
+
+    <div id="lightbox" class="lightbox hidden">
+      <button id="collapse-btn" class="primary-btn">Click To Collapse</button>
+      <div id="lightbox-content"></div>
+    </div>
+
+    <div id="delete-modal" class="modal hidden">
+      <div class="modal-content delete-modal">
+        <p>Are You Sure You Want To Delete This Content?</p>
+        <div class="checkbox-row">
+          <label><input type="checkbox" id="delete-yes" /> Yes</label>
+          <label><input type="checkbox" id="delete-no" /> No</label>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
